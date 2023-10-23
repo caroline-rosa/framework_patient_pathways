@@ -192,14 +192,14 @@ def convert_df_into_MAG(df,
                     
                     edge = (tuple(origin_node.split(',')), tuple(target_node.split(',')), 
                               {'patient' : id_patient , 
-                               'interval' : str(interval),
+                               'interval' : float(interval),
                                'origin_timestamp' : str(origin_timestamp),
                                'target_timestamp' : str(target_timestamp)
                               })
                 else:
                     edge = (tuple(origin_node.split(',')), tuple(target_node.split(',')), 
                               {'patient' : id_patient ,
-                               'interval' : str(interval)})
+                               'interval' : float(interval)})
                     
                 list_of_edges.append(edge)
 
