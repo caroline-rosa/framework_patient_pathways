@@ -12,4 +12,6 @@ The file *MAG.py* is part of the MAG module developed by Juliana Z. G. Mascarenh
 
 The notebook *Generate synthetic patient pathways.ipynb* generates a synthetic dataset of patient pathways with the necessary fields to test the framework. Its goal is not to provide a reliable dataset to foster healthcare assessments but to supply those who would like to test the framework but do not have access to a healthcare dataset with an event log with the necessary information.
 
-The notebook *Framework.ipynb* is an example of how to assess multi-perspective patient pathways, and the file *dashboard.py* generates a dashboard to facilitate their analysis.
+The notebook *Framework.ipynb* is an example of how to assess multi-perspective patient pathways. It is also available in [Google Colab] (https://colab.research.google.com/drive/1oQB3D_myZCvfG-rOV-9ljGrGxov7Cj1F?usp=sharing).
+
+The file *dashboard.py* generates a dashboard to facilitate the analysis of the patient pathway model.
