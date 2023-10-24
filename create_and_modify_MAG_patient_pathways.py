@@ -300,8 +300,7 @@ def contract_multiMAG_nodes(graph, attribute_name, attribute_value, aspect_to_su
             # remove the non-contracted node from graph H
             H.remove_node(node)
     
-    for node in H.nodes():
-        mag.update_aspect_list(H,node)
+    H.compact_aspects_list() # update aspect list
     
     return H
 
