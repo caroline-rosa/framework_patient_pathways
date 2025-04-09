@@ -684,6 +684,7 @@ def mag_centralities(G,
                      weight_intervention_vs_occupation = 0.5, weight_complications = 0.5,
                      bool_remove_start_end = True, use_edge_frequency = True,
                      pagerank_alpha = 0.25, show_start_end = False,
+                     start_string = 'start', end_string = 'end',
                      return_centrality_dict = False, bool_normalize_result = True
                      ):
 
@@ -734,6 +735,12 @@ def mag_centralities(G,
       If True, the artificial start and end nodes will not be removed from the returned graph, 
       even if they were not included in the PageRank algorithm execution according to bool_remove_start_end
 
+    start_string : string, optional (default = 'start')
+      What string is used to label the start node
+
+    end_string : string, optional (default = 'end')
+      What string is used to label the end node
+
     return_centrality_dict : bool, optional (default = False)
       If True, besides the graph, a dictionary whose keys are the nodes and the values are the centralities
 
@@ -778,7 +785,7 @@ def mag_centralities(G,
 
     for node in graph.nodes():
 
-        if ((node[0]!='start') & (node[0]!='end')):
+        if ((node[0]!=start_string) & (node[0]!=end_string)):
 
             dict_R0[node] = (
                 weight_complications * dict_pagerank_unit_NORM[node[idx_unit]] +
@@ -801,7 +808,7 @@ def mag_centralities(G,
             
         nodelist = list(graph.nodes())
         for node in nodelist:
-            if((node[0] == 'start') | (node[0] == 'end')):
+            if((node[0] == start_string) | (node[0] == end_string)):
                 graph.remove_node(node)
     
     # --------------------------------------------------------------------------------------------------
@@ -840,7 +847,7 @@ def mag_centralities(G,
         for node in graph_with_start_end.nodes:
             if node in graph:
                 graph_with_start_end.nodes[node]['centrality'] = graph.nodes[node]['centrality']
-            elif ((node[0] == 'start') | (node[0] == 'end')):
+            elif ((node[0] == start_string) | (node[0] == end_string)):
                 graph_with_start_end.nodes[node]['centrality'] = 1.0
             else:
                 return -1
